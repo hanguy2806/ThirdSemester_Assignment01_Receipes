@@ -9,5 +9,7 @@ namespace Assignment01_Receipes.Models
     {
         public string name;
         public string description;
+
+       
     }
 }
