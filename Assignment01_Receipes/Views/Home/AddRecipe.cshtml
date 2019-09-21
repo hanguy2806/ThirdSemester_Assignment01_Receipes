@@ -1,0 +1,26 @@
+﻿@model Assignment01_Receipes.Models.Recipe
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add Recipe</title>
+
+</head>
+<body>
+    <form asp-action="AddRecipe" method="Post">
+        <div>
+            <label asp-for="name">Name: </label>
+            <input asp-for="name" />
+        </div>
+        <div>
+            <label asp-for="description">Description: </label>
+            <textarea asp-for="description"></textarea>
+        </div>
+    </form>
+</body>
+</html>
