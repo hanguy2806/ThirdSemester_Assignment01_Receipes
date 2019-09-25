@@ -7,14 +7,14 @@ using Assignment01_Receipes.Models;
 
 namespace Assignment01_Receipes.Controllers
 {
-    public class HomeController :Controller
+    public class HomeController : Controller
     {
-        public ViewResult Home()
-        {
-            int hour = DateTime.Now.Hour;
-            ViewBag.Greeting = hour < 12 ? "Good Morning" : "Good night" ;
-            return View();
+  
+        public ViewResult Index()
+        {                    
+            return View("RecipeList");
         }
+       
         [HttpGet]
         public ViewResult AddRecipe()
         {
@@ -23,9 +23,32 @@ namespace Assignment01_Receipes.Controllers
         [HttpPost]
         public ViewResult AddRecipe(Recipe r)
         {
-            Repository.addRecipe(r);
-            return View("ViewRecipe");
+            if(ModelState.IsValid){
+                Repository.addRecipe(r);
+                return View("RecipeList",Repository.Recipes);
+            }
+            else
+            {
+                return View();
+            }
+        }                               
+        public ViewResult RecipeList()
+        {
+            return View(Repository.Recipes);
         }
-        
-    }
+        public ViewResult ReviewRecipe()
+        {
+            return View();
+        }
+        public ViewResult ViewRecipe()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Index(Recipe r)
+        {
+            Recipe recipe = r;
+            return View("ReviewRecipe");
+        }
+    } 
 }

@@ -1,7 +1,4 @@
-﻿
-@{
-    Layout = null;
-}
+﻿@model IEnumerable<Assignment01_Receipes.Models.Recipe>
 
 <!DOCTYPE html>
 
@@ -13,6 +10,26 @@
 </head>
 <body>
     <h1>List of Recipe</h1>
-    <a asp-action="AddRecipe" > Click here to add recipe</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Assignment01_Receipes.Models.Recipe r in Repository.Recipes)
+            {
+                <tr>
+                    <td>@r.Name</td>
+                    <td>@r.Description</td>
+                    <td><a asp-action="ViewRecipe">Detail</a></td>
+                    <td ><a asp-action="ReviewRecipe">Your review.</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <a asp-action="AddRecipe"> Click here to add recipe</a>
 </body>
 </html>

@@ -14,14 +14,18 @@
 <body>
     <form asp-action="AddRecipe" method="Post">
         <div>
-            <label asp-for="name">Name: </label>
-            <input asp-for="name" />
+            <label asp-for="Name">Name: </label>
+            <input asp-for="Name" />
         </div>
         <div>
-            <label asp-for="description">Description: </label>
-            <textarea asp-for="description"></textarea>
+            <label asp-for="Description">Description: </label>
+            <textarea asp-for="Description"></textarea>
         </div>
-        <div><button>Add me</button></div>
+        
+        <div>
+            <button type="submit">Add me</button>
+        </div>
+        <div><a asp-action="Index">Back to home page</a></div>
     </form>
 </body>
 </html>

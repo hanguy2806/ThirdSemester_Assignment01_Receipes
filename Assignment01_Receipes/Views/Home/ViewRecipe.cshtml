@@ -1,8 +1,4 @@
 ﻿@model  Assignment01_Receipes.Models.Recipe
-@{
-    Layout = null;
-}
-
 <!DOCTYPE html>
 
 <html>
@@ -11,11 +7,9 @@
     <title>View Recipe</title>
 </head>
 <body>
-    <h1>View all recipes: </h1>
-    @if(Model.name != null)
-    {
-        @:
-    }
+    <p>Description</p>
+           
+    <a asp-action="RecipeList">Click</a> here to back to Recipe List.
 
 </body>
 </html>

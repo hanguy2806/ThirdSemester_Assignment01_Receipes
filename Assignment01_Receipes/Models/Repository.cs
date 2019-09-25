@@ -7,21 +7,20 @@ using Assignment01_Receipes.Models;
 
     public static class Repository
     {
-        private static List<Recipe> recipes = new List<Recipe>
-        {
-            new Recipe {name="Spaghetti", description="there are 3 steps" },
-            new Recipe {name="Pasta", description="there are 4 steps" },
-            new Recipe {name="Pizza", description="there are 5 steps" },
-            new Recipe {name="Ham", description="there are 6 steps" },
-        };
-        public static IEnumerable<Recipe> Recipes
-        {
+    private static List<Recipe> recipes = new List<Recipe> {
+    new Recipe { Name = "Spaghetti", Description = "there are 3 steps" },
+    new Recipe { Name = "Pasta", Description = "there are 4 steps" },
+    new Recipe { Name = "Pizza", Description = "there are 5 steps" },
+    new Recipe { Name = "Ham", Description = "there are 6 steps" },
+    };
+    public static IEnumerable<Recipe> Recipes
+    {
             get
             {
                 return recipes;
             }
         }
-        public static void addRecipe(Recipe r)
+    public static void addRecipe(Recipe r)
         {
             recipes.Add(r);
         }

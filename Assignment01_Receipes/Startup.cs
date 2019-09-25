@@ -25,8 +25,9 @@ namespace Assignment01_Receipes
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseMvcWithDefaultRoute();
            
+            app.UseMvcWithDefaultRoute();
+
         }
     }
 }
