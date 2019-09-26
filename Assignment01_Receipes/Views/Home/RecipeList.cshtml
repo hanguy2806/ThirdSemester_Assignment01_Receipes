@@ -13,18 +13,23 @@
     <table>
         <thead>
             <tr>
+                <th>ID</th>
                 <th>Name</th>
                 <th>Description</th>
             </tr>
         </thead>
         <tbody>
+            @ViewBag.count=0;
+      
             @foreach (Assignment01_Receipes.Models.Recipe r in Repository.Recipes)
             {
                 <tr>
+                    @r.ID=count+1;
+                    <th>@r.ID</th>
                     <td>@r.Name</td>
                     <td>@r.Description</td>
-                    <td><a asp-action="ViewRecipe">Detail</a></td>
-                    <td ><a asp-action="ReviewRecipe">Your review.</a></td>
+                    <td>@Html.ActionLink("Detail here","ViewRecipe",new {id=r.ID } )</td>
+                    <td>@Html.ActionLink("Review here", "ReviewRecipe", new { id = r.ID }) </td>
                 </tr>
             }
         </tbody>

@@ -4,6 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Assignment01_Receipes.Models;
+using System.Data;
+using System.Web;
+
 
 namespace Assignment01_Receipes.Controllers
 {
@@ -44,11 +47,28 @@ namespace Assignment01_Receipes.Controllers
         {
             return View();
         }
-        [HttpPost]
-        public ActionResult Index(Recipe r)
+              
+        [HttpGet]
+        public ActionResult ReviewRecipe(int id)
         {
-            Recipe recipe = r;
-            return View("ReviewRecipe");
+            Recipe re = Repository.Recipes.ElementAt(id-1);
+                return View(re);
+        }
+        [HttpPost]
+        public ActionResult ReviewRecipe(Recipe recipe)
+        {            
+            return View(recipe);
+        }
+        [HttpGet]
+        public ActionResult ViewRecipe(int id)
+        {
+            Recipe re = Repository.Recipes.ElementAt(id-1);
+            return View(re);
+        }
+        [HttpPost]
+        public ActionResult ViewRecipe(Recipe recipe)
+        {
+            return View(recipe);
         }
     } 
 }

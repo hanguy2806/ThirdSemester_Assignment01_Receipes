@@ -23,6 +23,8 @@ using Assignment01_Receipes.Models;
     public static void addRecipe(Recipe r)
         {
             recipes.Add(r);
+
+        
         }
     }
 
