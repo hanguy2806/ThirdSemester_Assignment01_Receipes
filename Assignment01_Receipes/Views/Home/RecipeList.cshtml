@@ -1,40 +1,44 @@
 ﻿@model IEnumerable<Assignment01_Receipes.Models.Recipe>
+@{
+    Layout = "_BasicLayout";
+    ViewBag.Title = "Recipe List";
+}
+<h1>List of Recipe</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Give Feedback</th>
+        </tr>
+    </thead>
+    <tbody>
+       
+        @foreach (Assignment01_Receipes.Models.Recipe r in Model)
+        {         
+    <tr>        
+        <th>@r.ID</th>
+        <td>@r.Name</td>
+        <td>
+            <a class="btn btn-block btn-secondary"
+               asp-action="ViewRecipe"
+               asp-controller="Home"
+               asp-route-category="@r.ID">
+                Detail
+            </a>
+        </td>
+        <td>
+            <a class="btn btn-block btn-secondary"
+               asp-action="ReviewRecipe"
+               asp-controller="Home"
+               asp-route-category="@r.ID">
+                Review
+            </a>
+        </td>
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Recipe List</title>
-
-</head>
-<body>
-    <h1>List of Recipe</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Description</th>
-            </tr>
-        </thead>
-        <tbody>
-            @ViewBag.count=0;
-      
-            @foreach (Assignment01_Receipes.Models.Recipe r in Repository.Recipes)
-            {
-                <tr>
-                    @r.ID=count+1;
-                    <th>@r.ID</th>
-                    <td>@r.Name</td>
-                    <td>@r.Description</td>
-                    <td>@Html.ActionLink("Detail here","ViewRecipe",new {id=r.ID } )</td>
-                    <td>@Html.ActionLink("Review here", "ReviewRecipe", new { id = r.ID }) </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-
-    <a asp-action="AddRecipe"> Click here to add recipe</a>
-</body>
-</html>
+    </tr>
+        }
+    </tbody>
+</table>
+<a asp-action="Index">Back</a>

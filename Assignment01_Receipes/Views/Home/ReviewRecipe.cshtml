@@ -1,16 +1,12 @@
-﻿@model  Assignment01_Receipes.Models.Recipe
+﻿@model Assignment01_Receipes.Models.Recipe
+@{
+    Layout = "_BasicLayout";
+    ViewBag.Title = "Review Recipe";
+}
 <!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Review Recipe</title>
-
-</head>
-<body>
-    <p>Please give feedback @Model.Name for below:</p>
-    <textarea></textarea>
-    <button>Submit</button>
-              
-</body>
-</html>
+<div class="text-center">
+    <h2>Please give feedback for @Model.Name  below:</h2>
+    <textarea></textarea><br />
+    <button class="btn btn-primary">Submit</button>
+</div>
+<p><a asp-action="RecipeList">Click here to back Recipe List</a></p>

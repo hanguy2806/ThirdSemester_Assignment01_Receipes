@@ -1,15 +1,19 @@
 ﻿@model  Assignment01_Receipes.Models.Recipe
+@{ 
+    Layout = "_BasicLayout";
+    ViewBag.Title = "View Recipe";
+
+}
 <!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>View Recipe</title>
-</head>
-<body>
-    <p>Description of @Model.Name </p>
+   <h3>Description of @Model.Name </h3>
+    <ul>
+        <li>@Model.Description</li>
+        <li>@Model.Ingredient</li>
+        <li><img src="@Url.Content(@Model.imgInfo)" width="100" height="100" alt="IMAGES" />
+        
+        </li>
+    </ul>
            
     <a asp-action="RecipeList">Click</a> here to back to Recipe List.
 
-</body>
-</html>

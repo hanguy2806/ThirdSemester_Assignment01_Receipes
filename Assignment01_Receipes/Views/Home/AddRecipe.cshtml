@@ -1,31 +1,19 @@
 ﻿@model Assignment01_Receipes.Models.Recipe
 @{
-    Layout = null;
+    Layout = "_BasicLayout";
+    ViewBag.Title = "Add Recipe";
 }
-
 <!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Add Recipe</title>
-
-</head>
-<body>
-    <form asp-action="AddRecipe" method="Post">
-        <div>
-            <label asp-for="Name">Name: </label>
-            <input asp-for="Name" />
-        </div>
-        <div>
-            <label asp-for="Description">Description: </label>
-            <textarea asp-for="Description"></textarea>
-        </div>
-        
-        <div>
-            <button type="submit">Add me</button>
-        </div>
-        <div><a asp-action="Index">Back to home page</a></div>
-    </form>
-</body>
-</html>
+<div class="panel panel-success">
+    <div class="panel-body">
+        <form asp-action="AddRecipe" method="Post">
+            @await Html.PartialAsync("AddRecipeView")
+            <div class="text-center">
+                <button class="btn btn-primary" type="submit">Add me</button>
+                <button class="btn btn-primary" type="submit">Save</button>
+                <button class="btn btn-primary" asp-action="Index">Cancel</button>
+            </div>        
+        </form>
+    </div>
+</div>

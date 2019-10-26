@@ -1,18 +1,13 @@
-﻿
-@{
-    Layout = null;
+﻿@{
+    Layout = "_BasicLayout";
+    ViewBag.Title = "Home Page";
 }
 
 <!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Recipes</title>
-</head>
-<body>
-    <h1>Recipes Page</h1>
-    <h2>@ViewBag.Greeting World ( from the view )</h2>
-    <a asp-action="RecipeList" >Here is a list of recipe</a>
-</body>
-</html>
+<div class="text-center">
+    <h1 id="header1">Recipes Page</h1>
+
+    <h3><a asp-action="RecipeList" class="nav-link">List of recipe</a></h3> 
+    <h3><a asp-action="AddRecipe" class="nav-link">Add Recipe</a></h3>
+</div>

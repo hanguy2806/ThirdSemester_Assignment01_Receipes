@@ -1,11 +1,14 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
+    <None Include="wwwroot\Content\images\ham.jpg" />
+    <None Include="wwwroot\Content\images\pasta.jpg" />
+    <None Include="wwwroot\Content\images\pizza.jpg" />
+    <None Include="wwwroot\Content\images\spaghetti.jpg" />
   </ItemGroup>
 
   <ItemGroup>

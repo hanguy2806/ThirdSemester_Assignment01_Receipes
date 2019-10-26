@@ -12,12 +12,13 @@ namespace Assignment01_Receipes.Controllers
 {
     public class HomeController : Controller
     {
-  
+      
         public ViewResult Index()
-        {                    
-            return View("RecipeList");
+        {
+
+            return View();
         }
-       
+
         [HttpGet]
         public ViewResult AddRecipe()
         {
@@ -26,49 +27,44 @@ namespace Assignment01_Receipes.Controllers
         [HttpPost]
         public ViewResult AddRecipe(Recipe r)
         {
-            if(ModelState.IsValid){
+            if (ModelState.IsValid)
+            {
                 Repository.addRecipe(r);
-                return View("RecipeList",Repository.Recipes);
+                return View("RecipeList");
             }
             else
             {
                 return View();
             }
-        }                               
+        }
         public ViewResult RecipeList()
         {
             return View(Repository.Recipes);
         }
-        public ViewResult ReviewRecipe()
-        {
-            return View();
-        }
-        public ViewResult ViewRecipe()
-        {
-            return View();
-        }
-              
+       
         [HttpGet]
-        public ActionResult ReviewRecipe(int id)
+        public ViewResult ViewRecipe(int category)
         {
-            Recipe re = Repository.Recipes.ElementAt(id-1);
-                return View(re);
-        }
-        [HttpPost]
-        public ActionResult ReviewRecipe(Recipe recipe)
-        {            
-            return View(recipe);
-        }
-        [HttpGet]
-        public ActionResult ViewRecipe(int id)
-        {
-            Recipe re = Repository.Recipes.ElementAt(id-1);
+            Recipe re = Repository.Recipes.ElementAt(category);
             return View(re);
         }
         [HttpPost]
-        public ActionResult ViewRecipe(Recipe recipe)
+        public ViewResult ViewRecipe(Recipe recipe)
         {
             return View(recipe);
         }
-    } 
+
+        [HttpGet]
+        public ViewResult ReviewRecipe(int category)
+        {
+            Recipe re = Repository.Recipes.ElementAt(category);
+            return View(re);
+        }
+        [HttpPost]
+        public ViewResult ReviewRecipe(Recipe recipe)
+        {
+            return View(recipe);
+        }
+
+    }
 }

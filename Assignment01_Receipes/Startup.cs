@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Assignment01_Receipes
@@ -25,9 +26,21 @@ namespace Assignment01_Receipes
             {
                 app.UseDeveloperExceptionPage();
             }
-           
+            app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
+            app.UseMvc(routes => {
+                routes.MapRoute(
+                  name: null,
+                  template: "",
+                  defaults: new { controller = "Product", action = "List" });
 
+                routes.MapRoute(
+                    name: null,
+                    template: "{category}",
+                    defaults: new { controller = "Product", action = "List" }
+                );
+                routes.MapRoute(name: null, template: "{controller}/{action}/{id?}");
+            });
         }
     }
 }
