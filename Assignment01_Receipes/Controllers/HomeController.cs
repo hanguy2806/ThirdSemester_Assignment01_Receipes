@@ -30,7 +30,7 @@ namespace Assignment01_Receipes.Controllers
             if (ModelState.IsValid)
             {
                 Repository.addRecipe(r);
-                return View("RecipeList");
+                return View("RecipeList",Repository.Recipes);
             }
             else
             {
