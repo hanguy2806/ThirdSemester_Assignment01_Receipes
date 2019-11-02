@@ -1,14 +1,18 @@
 ﻿@model Assignment01_Receipes.Models.Recipe
 <div asp-validation-summary="All"></div>
-<div class="form-group">
-    <label asp-for="Name">Name: </label>
-    <input asp-for="Name" />
-</div>
-<div class="form-group">
-    <label asp-for="Description">Description: </label>
-    <textarea asp-for="Description"></textarea>
-</div>
-<div class="form-group">
-    <label asp-for="Ingredient">Ingredient: </label>
-    <textarea asp-for="Ingredient"></textarea>
-</div>
+<tr>
+    <div class="form-group">
+        <label asp-for="Name">Name: </label>
+        <input asp-for="Name" />
+    </div>
+</tr><tr>
+    <div class="form-group">
+        <label asp-for="Description">Description: </label>
+        <textarea asp-for="Description"></textarea>
+    </div>
+</tr><tr>
+    <div class="form-group">
+        <label asp-for="Ingredient">Ingredient: </label>
+        <textarea asp-for="Ingredient"></textarea>
+    </div>
+</tr>

@@ -1,0 +1,22 @@
+﻿@model Assignment01_Receipes.Models.Recipe
+    <tr>
+        <td>@Model.ID</td>
+        <td>@Model.Name</td>
+        <td>
+            <a 
+               asp-action="ViewRecipe"
+               asp-controller="Home"
+               asp-route-category="@Model.ID">
+                Detail
+            </a>
+        </td>
+        <td>
+            <a 
+               asp-action="ReviewRecipe"
+               asp-controller="Home"
+               asp-route-category="@Model.ID">
+                Review
+            </a>
+        </td>
+
+    </tr>

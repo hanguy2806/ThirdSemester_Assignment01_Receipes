@@ -3,7 +3,7 @@
     Layout = "_BasicLayout";
     ViewBag.Title = "Recipe List";
 }
-<h1>List of Recipe</h1>
+<h1 class="text-center">List of Recipe</h1>
 <table class="table">
     <thead>
         <tr>
@@ -14,30 +14,10 @@
         </tr>
     </thead>
     <tbody>
-       
-        @foreach (Assignment01_Receipes.Models.Recipe r in Model)
-        {         
-    <tr>        
-        <th>@r.ID</th>
-        <td>@r.Name</td>
-        <td>
-            <a class="btn btn-block btn-secondary"
-               asp-action="ViewRecipe"
-               asp-controller="Home"
-               asp-route-category="@r.ID">
-                Detail
-            </a>
-        </td>
-        <td>
-            <a class="btn btn-block btn-secondary"
-               asp-action="ReviewRecipe"
-               asp-controller="Home"
-               asp-route-category="@r.ID">
-                Review
-            </a>
-        </td>
 
-    </tr>
+        @foreach (Assignment01_Receipes.Models.Recipe r in Model)
+        {
+            @await Html.PartialAsync("RecipeSummary",r)
         }
     </tbody>
 </table>
