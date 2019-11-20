@@ -8,5 +8,7 @@ namespace Assignment01_Receipes.Models
     public interface IRecipeRepository
     {
         IQueryable<Recipe> Recipes { get; }
+        void addRecipe(Recipe r);
+       
     }
 }

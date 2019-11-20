@@ -33,7 +33,7 @@ namespace Assignment01_Receipes.Controllers
         {
             if (ModelState.IsValid)
             {
-                Repository.addRecipe(r);
+                repository.addRecipe(r);
                 return View("RecipeList",repository.Recipes);
             }
             else
@@ -49,7 +49,7 @@ namespace Assignment01_Receipes.Controllers
         [HttpGet]
         public ViewResult ViewRecipe(int category)
         {
-            Recipe re = Repository.Recipes.ElementAt(category);
+            Recipe re = repository.Recipes.ElementAt(category);
             return View(re);
         }
         [HttpPost]
@@ -61,7 +61,7 @@ namespace Assignment01_Receipes.Controllers
         [HttpGet]
         public ViewResult ReviewRecipe(int category)
         {
-            Recipe re = Repository.Recipes.ElementAt(category);
+            Recipe re = repository.Recipes.ElementAt(category);
             return View(re);
         }
         [HttpPost]

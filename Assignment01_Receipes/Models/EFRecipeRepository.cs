@@ -13,5 +13,11 @@ namespace Assignment01_Receipes.Models
             context = ctx;
         }
         public IQueryable<Recipe> Recipes => context.Recipes;
+
+        public void addRecipe(Recipe r)
+        {
+            context.Recipes.Add(r);
+        }
+
     }
 }

@@ -9,8 +9,7 @@ namespace Assignment01_Receipes.Models
     public class Recipe
     {      
         [Key]
-        public int Id { get; set; }
-     
+        public int Id { get; set; }     
 
         [Required(ErrorMessage ="Please enter your name")]
         public string Name { get; set; }
