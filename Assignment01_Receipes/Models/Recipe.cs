@@ -7,20 +7,10 @@ using System.ComponentModel.DataAnnotations;
 namespace Assignment01_Receipes.Models
 {
     public class Recipe
-    {        
-        public  int Id;
-        public int ID
-        {
-            get
-            {
-                for (int i = 0; i < Repository.Recipes.Count(); i++)
-                {
-                    Repository.Recipes.ElementAt(i).Id = i;
-                }
-                return Id;
-            }
-            set { }
-        }
+    {      
+        [Key]
+        public int Id { get; set; }
+     
 
         [Required(ErrorMessage ="Please enter your name")]
         public string Name { get; set; }

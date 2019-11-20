@@ -12,7 +12,11 @@ namespace Assignment01_Receipes.Controllers
 {
     public class HomeController : Controller
     {
-      
+        private IRecipeRepository repository;
+        public HomeController(IRecipeRepository repo)
+        {
+            repository = repo;
+        }
         public ViewResult Index()
         {
 
@@ -30,7 +34,7 @@ namespace Assignment01_Receipes.Controllers
             if (ModelState.IsValid)
             {
                 Repository.addRecipe(r);
-                return View("RecipeList",Repository.Recipes);
+                return View("RecipeList",repository.Recipes);
             }
             else
             {
@@ -39,7 +43,7 @@ namespace Assignment01_Receipes.Controllers
         }
         public ViewResult RecipeList()
         {
-            return View(Repository.Recipes);
+            return View(repository.Recipes);
         }
        
         [HttpGet]

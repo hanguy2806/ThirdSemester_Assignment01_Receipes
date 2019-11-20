@@ -1,12 +1,12 @@
 ﻿@model Assignment01_Receipes.Models.Recipe
     <tr>
-        <td>@Model.ID</td>
+        <td>@Model.Id</td>
         <td>@Model.Name</td>
         <td>
             <a 
                asp-action="ViewRecipe"
                asp-controller="Home"
-               asp-route-category="@Model.ID">
+               asp-route-category="@Model.Id">
                 Detail
             </a>
         </td>
@@ -14,7 +14,7 @@
             <a 
                asp-action="ReviewRecipe"
                asp-controller="Home"
-               asp-route-category="@Model.ID">
+               asp-route-category="@Model.Id">
                 Review
             </a>
         </td>
