@@ -22,34 +22,16 @@ namespace Assignment01_Receipes.Controllers
 
             return View();
         }
-
-        [HttpGet]
-        public ViewResult AddRecipe()
-        {
-            return View();
-        }
-        [HttpPost]
-        public ViewResult AddRecipe(Recipe r)
-        {
-            if (ModelState.IsValid)
-            {
-                repository.addRecipe(r);
-                return View("RecipeList",repository.Recipes);
-            }
-            else
-            {
-                return View();
-            }
-        }
+        
         public ViewResult RecipeList()
         {
             return View(repository.Recipes);
         }
        
         [HttpGet]
-        public ViewResult ViewRecipe(int category)
+        public ViewResult ViewRecipe(int recipeId)
         {
-            Recipe re = repository.Recipes.ElementAt(category);
+            Recipe re = repository.Recipes.FirstOrDefault(r=>r.Id==recipeId);
             return View(re);
         }
         [HttpPost]
@@ -59,9 +41,9 @@ namespace Assignment01_Receipes.Controllers
         }
 
         [HttpGet]
-        public ViewResult ReviewRecipe(int category)
+        public ViewResult ReviewRecipe(int recipeId)
         {
-            Recipe re = repository.Recipes.ElementAt(category);
+            Recipe re = repository.Recipes.FirstOrDefault(r => r.Id == recipeId);
             return View(re);
         }
         [HttpPost]

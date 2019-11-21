@@ -1,0 +1,32 @@
+﻿@model  IEnumerable<Recipe>
+@{ 
+    ViewBag.Title = "All PREcipes";
+    Layout = "_BasicLayout";
+}
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Actions</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>
+                <form asp-action="Delete" method="post">
+                    <input type="hidden" name="RecipeId" value="@item.Id"/>
+                    <a asp-action="Edit" asp-route-recipeid="@item.Id">
+                    Edit</a>
+                    <button type="submit">Delete</button>
+
+                </form>
+            </td>
+        </tr>
+    }
+</table>
+<div>
+    <a asp-action="AddRecipe">Add Recipe</a>
+</div>
+

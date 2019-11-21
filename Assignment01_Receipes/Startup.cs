@@ -40,14 +40,12 @@ namespace Assignment01_Receipes
             app.UseMvc(routes => {
                 routes.MapRoute(
                   name: null,
-                  template: "",
-                  defaults: new { controller = "Product", action = "List" });
+                  template: "");
 
-                routes.MapRoute(
-                    name: null,
-                    template: "{category}",
-                    defaults: new { controller = "Product", action = "List" }
-                );
+            routes.MapRoute(
+                name: null,
+                template: "{id}");                  
+              
                 routes.MapRoute(name: null, template: "{controller}/{action}/{id?}");
             });
             SeedData.EnsurePopulated(app);

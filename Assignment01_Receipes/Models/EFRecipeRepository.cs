@@ -14,10 +14,23 @@ namespace Assignment01_Receipes.Models
         }
         public IQueryable<Recipe> Recipes => context.Recipes;
 
-        public void addRecipe(Recipe r)
+        public void addRecipe(Recipe re)
         {
-            context.Recipes.Add(r);
+            context.Recipes.Add(re);
         }
+        public void SaveRecipe(Recipe re)
+        {
+            Recipe recipeEntry = context.Recipes
+                .FirstOrDefault(r => r.Id == re.Id);
+            if(recipeEntry != null)
+            {
+                recipeEntry.Name = re.Name;
+                recipeEntry.Description = re.Description;
+                recipeEntry.Ingredient = re.Ingredient;
+            }
+            context.SaveChanges();
+        }
+       
 
     }
 }
