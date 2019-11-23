@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/recipe StyleSheet.css"  type="text/css"/>
+</head>
+<body>
+    <div class="text-center">
+        @if(TempData["message"] != null)
+        {
+            <div class="alert alert-success mt-1">@TempData["message"]</div>
+        }
+        @RenderBody()
+    </div>
+    <footer>&copy; Coppy right by Ha Nguyen - Web Application Development - Fall 2019</footer>
+</body>
+</html>

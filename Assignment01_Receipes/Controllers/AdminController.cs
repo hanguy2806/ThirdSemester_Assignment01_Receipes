@@ -14,14 +14,18 @@ namespace Assignment01_Receipes.Controllers
         {
             repository = repo;
         }
+
+        public ViewResult Index() => View(repository.Recipes);
         public ViewResult RecipePage() => View(repository.Recipes);
+      
+        
+        public ViewResult Edit(int recipeId) => View(repository
+            .Recipes.FirstOrDefault(r => r.Id == recipeId));
         [HttpGet]
         public ViewResult AddRecipe()
         {
             return View();
         }
-        public ViewResult Edit(int id) => View(repository
-            .Recipes.FirstOrDefault(p => p.Id == id));
 
         [HttpPost]
         public ViewResult AddRecipe(Recipe r)
@@ -44,12 +48,24 @@ namespace Assignment01_Receipes.Controllers
             {
                 repository.SaveRecipe(r);
                 TempData["message"] = $"{r.Name} has been saved!";
-                return RedirectToAction("RecipePage");
+                return RedirectToAction("RecipePage",repository.Recipes);
             }
             else
             {
                 return View(r);
             }
+        }
+        
+        [HttpPost]
+        public IActionResult Delete(int recipeId)
+        {
+            Recipe deletedRecipe = repository.DeleteRecipe(recipeId);
+            if(deletedRecipe != null)
+            {
+                TempData["message"] = $"{deletedRecipe.Name} was deleted!";
+
+            }
+            return RedirectToAction("RecipePage");
         }
     }
 }

@@ -18,6 +18,17 @@ namespace Assignment01_Receipes.Models
         {
             context.Recipes.Add(re);
         }
+        public Recipe DeleteRecipe(int recipeId)
+        {
+            Recipe recipeEntry = context.Recipes
+                .FirstOrDefault(r => r.Id == recipeId);
+            if(recipeEntry != null)
+            {
+                context.Recipes.Remove(recipeEntry);
+                context.SaveChanges();
+            }
+            return recipeEntry;
+        }
         public void SaveRecipe(Recipe re)
         {
             Recipe recipeEntry = context.Recipes

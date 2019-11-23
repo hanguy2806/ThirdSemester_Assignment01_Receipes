@@ -16,8 +16,8 @@
             <td>@item.Name</td>
             <td>
                 <form asp-action="Delete" method="post">
-                    <input type="hidden" name="RecipeId" value="@item.Id"/>
-                    <a asp-action="Edit" asp-route-recipeid="@item.Id">
+                    <input type="hidden" name="recipeId" value="@item.Id"/>
+                    <a asp-action="Edit" asp-route-recipeId="@item.Id">
                     Edit</a>
                     <button type="submit">Delete</button>
 
