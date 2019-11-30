@@ -1,7 +1,7 @@
-﻿@model  IEnumerable<Recipe>
-@{ 
-    ViewBag.Title = "All PREcipes";
-    Layout = "_BasicLayout";
+﻿@model IEnumerable<Recipe>
+@{
+    ViewBag.Title = "All Recipes";
+    Layout = "_AdminLayout";
 }
 <table>
     <tr>
@@ -13,12 +13,20 @@
     {
         <tr>
             <td>@item.Id</td>
-            <td>@item.Name</td>
+
+            <td>
+                <a asp-action="ViewRecipe"
+                   asp-controller="Home"
+                   asp-route-recipeId="@item.Id">
+                    @item.Name
+                </a>
+            </td>
             <td>
                 <form asp-action="Delete" method="post">
-                    <input type="hidden" name="recipeId" value="@item.Id"/>
+                    <input type="hidden" name="recipeId" value="@item.Id" />
                     <a asp-action="Edit" asp-route-recipeId="@item.Id">
-                    Edit</a>
+                        Edit
+                    </a>
                     <button type="submit">Delete</button>
 
                 </form>

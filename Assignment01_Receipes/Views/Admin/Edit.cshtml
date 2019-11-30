@@ -1,25 +1,13 @@
 ﻿@model Recipe
 @{
     ViewBag.Title = "Update Recipe";
-    Layout = "_BasicLayout";
+    Layout = "_AdminLayout";
 }
-<form asp-action="Edit" method="post">
-    <input type="hidden" asp-for="Id" />
-    <div>
-        <label asp-for="Name"></label>
-        <input asp-for="Name" />
-    </div>
-    <div>
-        <label asp-for="Description">Description: </label>
-        <textarea asp-for="Description"></textarea>
-    </div>
-
-    <div>
-        <label asp-for="Ingredient">Ingredient: </label>
-        <textarea asp-for="Ingredient"></textarea>
-    </div>
+    <form asp-action="Edit" method="post">
+        <input type="hidden" asp-for="Id" />
+        @await Html.PartialAsync("AddRecipeView")
     <div>
         <button type="submit">Save</button>
         <a asp-action="RecipePage">Cancel</a>
     </div>
-</form>
+    </form>
