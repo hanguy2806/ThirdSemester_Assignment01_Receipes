@@ -1,4 +1,5 @@
 ﻿using Assignment01_Receipes.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Assignment01_Receipes.Controllers
 {
+    [Authorize]
     public class AdminController:Controller
     {
         private IRecipeRepository repository;
@@ -14,20 +16,23 @@ namespace Assignment01_Receipes.Controllers
         {
             repository = repo;
         }
-
-        public ViewResult Index() => View(repository.Recipes);
+        
+        public ViewResult Index() => View();
+        
         public ViewResult RecipePage() => View(repository.Recipes);
       
-        
+     
         public ViewResult Edit(int recipeId) => View(repository
             .Recipes.FirstOrDefault(r => r.Id == recipeId));
         [HttpGet]
+        [Authorize]
         public ViewResult AddRecipe()
         {
             return View();
         }
 
         [HttpPost]
+ 
         public ViewResult AddRecipe(Recipe r)
         {
             if (ModelState.IsValid)
@@ -42,6 +47,7 @@ namespace Assignment01_Receipes.Controllers
             }
         }
         [HttpPost]
+      
         public IActionResult Edit(Recipe r)
         {
             if (ModelState.IsValid)
@@ -57,6 +63,7 @@ namespace Assignment01_Receipes.Controllers
         }
         
         [HttpPost]
+       
         public IActionResult Delete(int recipeId)
         {
             Recipe deletedRecipe = repository.DeleteRecipe(recipeId);

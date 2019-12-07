@@ -6,6 +6,7 @@ using Assignment01_Receipes.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -21,9 +22,11 @@ namespace Assignment01_Receipes
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            //var connection = "Server = (localdb)\\MSSQLLocalDB; Database = Assignment01_Receipes; Trusted_Connection = True; MultipleActiveResultSets = true";
-            //services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connection));
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration["Data:Assignment01_Receipes:ConnectionStrings"]));
+            services.AddDbContext<AppIdentityDbContext>(options => options.UseSqlServer(Configuration["Data:Assignment01_Receipes_Identity:ConnectionStrings"]));
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<AppIdentityDbContext>()
+                .AddDefaultTokenProviders();
             services.AddTransient<IRecipeRepository,EFRecipeRepository>();
             services.AddMvc();
         }
@@ -36,6 +39,7 @@ namespace Assignment01_Receipes
                 app.UseDeveloperExceptionPage();
             }
             app.UseStaticFiles();
+            app.UseAuthentication();
             app.UseMvcWithDefaultRoute();
             app.UseMvc(routes => {
                 routes.MapRoute(
@@ -49,6 +53,7 @@ namespace Assignment01_Receipes
                 routes.MapRoute(name: null, template: "{controller}/{action}/{id?}");
             });
             SeedData.EnsurePopulated(app);
+            IdentitySeedData.EnsurePopulated(app);
         }
     }
 }
