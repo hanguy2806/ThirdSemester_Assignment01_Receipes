@@ -10,9 +10,13 @@
     <ul>
         <li>@Model.Description</li>
         <li>@Model.Ingredient</li>
-        <li><img src="@Url.Content(@Model.imgInfo)" width="400" height="400" alt="IMAGES" />        
-        </li>
+        <li><img src="@Url.Content(@Model.imgInfo)" width="400" height="400" alt="IMAGES" /></li>        
+        <li>@foreach (var i in @Model.cookingStepList) {
+            @:i
+        }</li>
     </ul>
+
+
            
     <a asp-action="RecipeList">Click</a> here to back to Recipe List.
 

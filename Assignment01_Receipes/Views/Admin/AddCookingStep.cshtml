@@ -1,0 +1,15 @@
+﻿@model CookingStep
+@{
+    Layout = "_AdminLayout";
+    ViewBag.Title = "Add Cooking Step";
+}
+<form asp-action="AddCookingStep" method="post">    
+    <div>
+        <input type="hidden" asp-for="cookingStepId" />
+        <input type="hidden" asp-for="recipeId" />
+        <label asp-for="description">Description</label>
+        <input asp-for="description"/>
+    </div>
+    <button type="submit">Create</button>
+</form>
+

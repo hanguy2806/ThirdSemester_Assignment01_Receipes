@@ -19,6 +19,14 @@ namespace Assignment01_Receipes.Models
         public String Ingredient { get; set; }
         public String imgInfo { get; set; }
 
-     
+        public List<CookingStep> cookingStepList = new List<CookingStep>(); 
+
+        public void addCookingStep(CookingStep cs)
+        {
+            cs.cookingStepId++;
+            cookingStepList.Add(cs);
+        }
+        
+       
     }
 }

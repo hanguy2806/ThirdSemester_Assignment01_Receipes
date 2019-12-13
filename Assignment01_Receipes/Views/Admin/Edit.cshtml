@@ -3,11 +3,13 @@
     ViewBag.Title = "Update Recipe";
     Layout = "_AdminLayout";
 }
-    <form asp-action="Edit" method="post">
-        <input type="hidden" asp-for="Id" />
-        @await Html.PartialAsync("AddRecipeView")
-    <div>
+<form asp-action="Edit" method="post">
+    
+    @await Html.PartialAsync("AddRecipeView")
+  
+    <div>       
+        <a asp-action="AddCookingStep" asp-route-id="@Model.Id">Add Cooking Step</a>
         <button type="submit">Save</button>
         <a asp-action="RecipePage">Cancel</a>
     </div>
-    </form>
+</form>

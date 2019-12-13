@@ -15,24 +15,35 @@ namespace Assignment01_Receipes.Controllers
         public AdminController(IRecipeRepository repo)
         {
             repository = repo;
-        }
-        
+        }       
+             
         public ViewResult Index() => View();
         
-        public ViewResult RecipePage() => View(repository.Recipes);
-      
-     
-        public ViewResult Edit(int recipeId) => View(repository
-            .Recipes.FirstOrDefault(r => r.Id == recipeId));
+        public ViewResult RecipePage() => View(repository.Recipes);    
+
         [HttpGet]
-        [Authorize]
+        public ViewResult AddCookingStep(int id)
+        {
+            CookingStep cs = new CookingStep();
+            cs.recipeId = id;
+            return View(cs);
+        }
+
+        [HttpPost]
+        public ViewResult AddCookingStep(CookingStep cs)
+        {
+            repository.Recipes.FirstOrDefault( r => r.Id == cs.recipeId )
+                .addCookingStep(cs);
+            return View("RecipePage", repository.Recipes);
+        }
+
+        [HttpGet]       
         public ViewResult AddRecipe()
         {
             return View();
         }
 
-        [HttpPost]
- 
+        [HttpPost] 
         public ViewResult AddRecipe(Recipe r)
         {
             if (ModelState.IsValid)
@@ -46,6 +57,10 @@ namespace Assignment01_Receipes.Controllers
                 return View();
             }
         }
+
+        [HttpGet]
+        public ViewResult Edit(int recipeId) => View(repository
+           .Recipes.FirstOrDefault(r => r.Id == recipeId));
         [HttpPost]
       
         public IActionResult Edit(Recipe r)
