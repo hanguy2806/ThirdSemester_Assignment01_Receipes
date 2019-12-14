@@ -10,5 +10,13 @@ namespace Assignment01_Receipes.Models
         public int recipeId;
         public int cookingStepId;
         public String description;
+        public CookingStep(int recipeId)
+        {
+            this.recipeId = recipeId;
+        }
+        public CookingStep()
+        {
+
+        }
     }
 }

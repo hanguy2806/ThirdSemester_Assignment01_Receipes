@@ -24,13 +24,9 @@
 </div>
 <div class="row">
     <div class="col-25">
-        <label asp-for="cookingStepList">Cooking: </label>
-    </div><div class="col-75">
-        <textarea asp-for="cookingStepList">
-@{ foreach (var item in @Model.cookingStepList)
-    {
-                @:item
-            } }</textarea>
+        <label asp-for="cookingStepList">Cooking:</label>
+    </div>
+    <div class="col-75">
     </div>
 </div>
 

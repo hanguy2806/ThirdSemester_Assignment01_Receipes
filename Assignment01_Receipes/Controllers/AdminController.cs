@@ -24,8 +24,7 @@ namespace Assignment01_Receipes.Controllers
         [HttpGet]
         public ViewResult AddCookingStep(int id)
         {
-            CookingStep cs = new CookingStep();
-            cs.recipeId = id;
+            CookingStep cs = new CookingStep(id);
             return View(cs);
         }
 

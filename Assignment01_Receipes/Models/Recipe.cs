@@ -23,6 +23,7 @@ namespace Assignment01_Receipes.Models
 
         public void addCookingStep(CookingStep cs)
         {
+            cs.recipeId = Id;
             cs.cookingStepId++;
             cookingStepList.Add(cs);
         }
