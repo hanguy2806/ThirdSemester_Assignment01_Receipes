@@ -9,9 +9,9 @@ namespace Assignment01_Receipes.Models
     public class CookingStep
     {
         [Key]
-        public int cookingStepId;
-        public int recipeId;
-        public String description;
-       
+        public int cookingStepId { get; set; }
+        public int recipeId { get; set; }
+        public String description { get; set; }
+
     }
 }

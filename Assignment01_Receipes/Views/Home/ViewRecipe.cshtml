@@ -11,7 +11,7 @@
         <li>@Model.Description</li>
         <li>@Model.Ingredient</li>
         <li><img src="@Url.Content(@Model.imgInfo)" width="400" height="400" alt="IMAGES" /></li>        
-        <li>@foreach (var i in @Model.cookingStepList) {
+        <li>@foreach (var i in @Model.CookingSteps) {
             @:i
         }</li>
     </ul>
