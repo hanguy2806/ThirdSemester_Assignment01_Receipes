@@ -11,5 +11,6 @@ namespace Assignment01_Receipes.Models
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext>options) :base(options) {}
         public DbSet<Recipe> Recipes { get; set; }
+        public DbSet<CookingStep> CookingSteps { get; set; }
     }
 }

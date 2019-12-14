@@ -2,9 +2,9 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Assignment01_Receipes.Migrations.AppIdentityDb
+namespace Assignment01_Receipes.Migrations
 {
-    public partial class Initial : Migration
+    public partial class initIdentity : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

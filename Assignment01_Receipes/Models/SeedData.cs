@@ -22,7 +22,8 @@ namespace Assignment01_Receipes.Models
                          Name = "Spaghetti",
                          Description = "This creates a great, chunky, and very meaty spaghetti sauce",
                          Ingredient = " It combines sweet Italian sausage and ground beef in a seasoned tomato sauce.",
-                         imgInfo = "~/Content/images/spaghetti.jpg"
+                         imgInfo = "~/Content/images/spaghetti.jpg",
+                         
                      },
         new Recipe
         {
@@ -30,6 +31,7 @@ namespace Assignment01_Receipes.Models
             Description = "Not to be confused with authentic Hungarian Goulash, but an easy American-style skillet meal full of comfort all the same.",
             Ingredient = "Used the fresh spinach as a bed for the pasta & was great",
             imgInfo = "~/Content/images/pasta.jpg"
+            
         },
         new Recipe
         {

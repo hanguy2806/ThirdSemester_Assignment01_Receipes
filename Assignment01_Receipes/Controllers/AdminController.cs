@@ -24,15 +24,16 @@ namespace Assignment01_Receipes.Controllers
         [HttpGet]
         public ViewResult AddCookingStep(int id)
         {
-            CookingStep cs = new CookingStep(id);
+            CookingStep cs = new CookingStep();
+            cs.recipeId = id;
             return View(cs);
         }
 
         [HttpPost]
         public ViewResult AddCookingStep(CookingStep cs)
         {
-            repository.Recipes.FirstOrDefault( r => r.Id == cs.recipeId )
-                .addCookingStep(cs);
+            repository.Recipes.FirstOrDefault(r => r.Id == cs.recipeId);
+              //  .addCookingStep(cs);
             return View("RecipePage", repository.Recipes);
         }
 

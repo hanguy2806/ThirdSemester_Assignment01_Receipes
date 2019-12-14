@@ -4,16 +4,14 @@ using Assignment01_Receipes.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace Assignment01_Receipes.Migrations.AppIdentityDb
+namespace Assignment01_Receipes.Migrations
 {
     [DbContext(typeof(AppIdentityDbContext))]
-    [Migration("20191205182559_Initial")]
-    partial class Initial
+    partial class AppIdentityDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

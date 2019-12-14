@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Assignment01_Receipes.Models
 {
     public class Recipe
     {      
-        [Key]
+       [Key]
+       [ForeignKey("CookingStep")]
         public int Id { get; set; }     
 
         [Required(ErrorMessage ="Please enter your name")]
@@ -18,16 +20,15 @@ namespace Assignment01_Receipes.Models
         [Required(ErrorMessage = "Please enter your ingredient: ")]
         public String Ingredient { get; set; }
         public String imgInfo { get; set; }
+        public virtual IQueryable<CookingStep> CookingSteps { get; set; }
 
-        public List<CookingStep> cookingStepList = new List<CookingStep>(); 
+        /* public void addCookingStep(CookingStep cs)
+         {
+             cs.recipeId = Id;
+             cs.cookingStepId++;
+             cookingStepList.Add(cs);
+         }
 
-        public void addCookingStep(CookingStep cs)
-        {
-            cs.recipeId = Id;
-            cs.cookingStepId++;
-            cookingStepList.Add(cs);
-        }
-        
-       
+        */
     }
 }
