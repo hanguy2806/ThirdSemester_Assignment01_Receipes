@@ -24,8 +24,15 @@
 </div>
 <div class="row">
     <div class="col-25">
-        <label asp-for="CookingSteps">Cooking:</label>
-    </div>
+        <label asp-for="CookingSteps.FirstOrDefault(cs=>cs.recipeId==Model.Id).description">Cooking Step:</label>
+    </div><div class="col-75">
+    <textarea asp-for="CookingSteps.FirstOrDefault(cs=>cs.recipeId==Model.Id).description">
+@foreach(var item in Model.CookingSteps)
+{
+    @item.recipeId
+}
+</textarea>
+</div>
     <div class="col-75">
     </div>
 </div>

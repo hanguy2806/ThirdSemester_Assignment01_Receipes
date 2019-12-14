@@ -6,6 +6,7 @@
 <form asp-action="AddCookingStep" method="post">    
     <div>
         <input type="hidden" asp-for="cookingStepId" />
+        <input type="hidden" asp-for="recipeId"/>
         <label asp-for="description">Description</label>
         <input asp-for="description"/>
     </div>

@@ -20,15 +20,11 @@ namespace Assignment01_Receipes.Models
         [Required(ErrorMessage = "Please enter your ingredient: ")]
         public String Ingredient { get; set; }
         public String imgInfo { get; set; }
-        public IQueryable<CookingStep> CookingSteps { get; set; }
-
-        /* public void addCookingStep(CookingStep cs)
-         {
-             cs.recipeId = Id;
-             cs.cookingStepId++;
-             cookingStepList.Add(cs);
-         }
-
-        */
+        public List<CookingStep> CookingSteps { get; set; }    
+        public Recipe()
+        {
+            CookingSteps = new List<CookingStep>();
+        }
     }
+
 }

@@ -8,8 +8,8 @@ namespace Assignment01_Receipes.Models
     public interface ICookingStepRepository
     {
         IQueryable<CookingStep> CookingSteps { get; }
-        /*void addRecipe(Recipe r);
-        void SaveRecipe(Recipe recipe);
+        void addRecipe(Recipe r);
+        /*void SaveRecipe(Recipe recipe);
         Recipe DeleteRecipe(int recipeId);
         */
     }

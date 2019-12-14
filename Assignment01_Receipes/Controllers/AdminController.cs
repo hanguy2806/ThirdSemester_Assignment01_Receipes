@@ -32,9 +32,8 @@ namespace Assignment01_Receipes.Controllers
         [HttpPost]
         public ViewResult AddCookingStep(CookingStep cs)
         {
-            repository.Recipes.FirstOrDefault(r => r.Id == cs.recipeId);
-              //  .addCookingStep(cs);
-            return View("RecipePage", repository.Recipes);
+            repository.addCookingStep(cs);              
+            return View("Edit", repository.Recipes.FirstOrDefault(r=>r.Id==cs.recipeId));
         }
 
         [HttpGet]       

@@ -41,7 +41,20 @@ namespace Assignment01_Receipes.Models
             }
             context.SaveChanges();
         }
-       
 
+        public void addCookingStep(CookingStep cs)
+        {
+            
+            Recipe r = context.Recipes.FirstOrDefault(re => re.Id == cs.recipeId);
+            if (r.CookingSteps == null)
+            {
+                r.CookingSteps = new List<CookingStep>();
+            }
+            r.CookingSteps.Add(cs);
+
+
+            context.Entry(r).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            context.SaveChanges();
+        }
     }
 }
