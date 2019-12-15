@@ -1,31 +1,24 @@
 ﻿@model Recipe
 <div asp-validation-summary="All"></div>
 <input type="hidden" asp-for="Id" />
-<div class="row">
-    <div class="col-25">
+<div >
+    <div >
         <label asp-for="Name">Name: </label>
-    </div><div class="col-75">
+    </div><div >
         <input asp-for="Name" />
     </div>
 </div>
-<div class="row">
-    <div class="col-25">
-        <label asp-for="Description">Description: </label>
-    </div><div class="col-75">
-        <textarea asp-for="Description"></textarea>
-    </div>
-</div>
-<div class="row">
-    <div class="col-25">
+<div>
+    <div>
         <label asp-for="Ingredient">Ingredient: </label>
-    </div><div class="col-75">
+    </div><div>
         <textarea asp-for="Ingredient"></textarea>
     </div>
 </div>
-<div class="row">
-    <div class="col-25">
+<div>
+    <div>
         <label>Cooking Step:</label>
-    </div><div class="col-75">
+    </div><div>
               <textarea>
            @{ 
                if(Model != null && Model.CookingSteps != null)
@@ -38,7 +31,7 @@
            }
           </textarea>
     </div>
-    <div class="col-75">
+    <div>
     </div>
 </div>
 

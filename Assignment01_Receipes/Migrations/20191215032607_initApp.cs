@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Assignment01_Receipes.Migrations.ApplicationDb
+namespace Assignment01_Receipes.Migrations
 {
     public partial class initApp : Migration
     {
