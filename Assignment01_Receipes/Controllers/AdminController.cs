@@ -58,8 +58,6 @@ namespace Assignment01_Receipes.Controllers
             }
         }
 
-
-
         [HttpGet]
         public ViewResult Edit(int recipeId)
         {

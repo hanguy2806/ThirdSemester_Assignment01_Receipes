@@ -33,8 +33,7 @@ namespace Assignment01_Receipes.Models
         }
         public void SaveRecipe(Recipe re)
         {
-            Recipe recipeEntry = context.Recipes
-                .FirstOrDefault(r => r.Id == re.Id);
+            Recipe recipeEntry = getRecipeByID(re.Id);
             if (recipeEntry != null)
             {
                 recipeEntry.Name = re.Name;
@@ -61,7 +60,7 @@ namespace Assignment01_Receipes.Models
         }
 
 
-        Recipe IRecipeRepository.getRecipeByID(int recipeId)
+        public Recipe getRecipeByID(int recipeId)
         {
             Recipe recipe = this.Recipes.FirstOrDefault(r => r.Id == recipeId);
             //Load the cooking steps to recipe

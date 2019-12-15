@@ -15,7 +15,7 @@ namespace Assignment01_Receipes.Models
 
         [Required(ErrorMessage ="Please enter your name")]
         public string Name { get; set; }
-        [Required(ErrorMessage="Please enter your description: ")]
+       // [Required(ErrorMessage="Please enter your description: ")]
         public string Description { get; set; }
         [Required(ErrorMessage = "Please enter your ingredient: ")]
         public String Ingredient { get; set; }
