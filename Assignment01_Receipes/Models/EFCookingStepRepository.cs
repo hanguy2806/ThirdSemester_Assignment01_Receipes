@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Assignment01_Receipes.Models
 {
-    public class EFCookingStepRepository
+    public class EFCookingStepRepository 
     {
         private ApplicationDbContext context;
         public EFCookingStepRepository(ApplicationDbContext ctx)

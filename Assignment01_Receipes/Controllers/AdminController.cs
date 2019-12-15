@@ -65,13 +65,13 @@ namespace Assignment01_Receipes.Controllers
             return View(recipe);
         }
 
-        [HttpPost]
-      
+        [HttpPost]      
         public IActionResult Edit(Recipe r)
         {
             if (ModelState.IsValid)
             {
-                repository.SaveRecipe(r);
+                //save a recipe with its cooking steps.
+                repository.SaveRecipe(repository.getRecipeByID(r.Id));
                 TempData["message"] = $"{r.Name} has been saved!";
                 return RedirectToAction("RecipePage",repository.Recipes);
             }

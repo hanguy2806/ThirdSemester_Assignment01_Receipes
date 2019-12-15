@@ -32,7 +32,8 @@ namespace Assignment01_Receipes.Controllers
         public ViewResult ViewRecipe(int recipeId)
         {
             Recipe re = repository.Recipes.FirstOrDefault(r=>r.Id==recipeId);
-            return View(re);
+            Recipe rep = repository.getRecipeByID(re.Id);
+            return View(rep);
         }
         [HttpPost]
         public ViewResult ViewRecipe(Recipe recipe)

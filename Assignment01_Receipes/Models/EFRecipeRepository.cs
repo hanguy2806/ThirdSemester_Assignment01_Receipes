@@ -55,7 +55,7 @@ namespace Assignment01_Receipes.Models
             }
             r.CookingSteps.Add(cs);
 
-            context.Entry(r).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+          //  context.Entry(r).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             context.SaveChanges();
         }
 

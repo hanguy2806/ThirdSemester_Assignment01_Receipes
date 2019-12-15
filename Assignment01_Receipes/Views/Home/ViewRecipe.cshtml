@@ -8,12 +8,21 @@
 
    <h3>Description of @Model.Name </h3>
     <ul>
-        <li>@Model.Description</li>
+       
         <li>@Model.Ingredient</li>
         <li><img src="@Url.Content(@Model.imgInfo)" width="400" height="400" alt="IMAGES" /></li>        
-        <li>@foreach (var i in @Model.CookingSteps) {
-            @:i
-        }</li>
+        <li>
+            @{
+                if (Model != null && Model.CookingSteps != null)
+                {
+                    foreach (CookingStep item in Model.CookingSteps)
+                    {
+                        @item.description
+                        <br />
+                    }
+                }
+                }
+            </li>
     </ul>
 
 
