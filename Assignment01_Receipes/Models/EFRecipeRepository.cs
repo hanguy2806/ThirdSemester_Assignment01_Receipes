@@ -13,6 +13,8 @@ namespace Assignment01_Receipes.Models
             context = ctx;
         }
         public IQueryable<Recipe> Recipes => context.Recipes;
+        public IQueryable<CookingStep> CookingSteps => context.CookingSteps;
+
 
         public void addRecipe(Recipe re)
         {
@@ -33,12 +35,14 @@ namespace Assignment01_Receipes.Models
         {
             Recipe recipeEntry = context.Recipes
                 .FirstOrDefault(r => r.Id == re.Id);
-            if(recipeEntry != null)
+            if (recipeEntry != null)
             {
                 recipeEntry.Name = re.Name;
                 recipeEntry.Description = re.Description;
                 recipeEntry.Ingredient = re.Ingredient;
+                recipeEntry.CookingSteps = re.CookingSteps;
             }
+
             context.SaveChanges();
         }
 
@@ -52,9 +56,18 @@ namespace Assignment01_Receipes.Models
             }
             r.CookingSteps.Add(cs);
 
-
             context.Entry(r).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             context.SaveChanges();
+        }
+
+
+        Recipe IRecipeRepository.getRecipeByID(int recipeId)
+        {
+            Recipe recipe = this.Recipes.FirstOrDefault(r => r.Id == recipeId);
+            //Load the cooking steps to recipe
+            IQueryable<CookingStep> steps = CookingSteps.Where(ck => ck.recipeId == recipeId);
+            recipe.CookingSteps = steps.ToList();
+            return recipe;
         }
     }
 }

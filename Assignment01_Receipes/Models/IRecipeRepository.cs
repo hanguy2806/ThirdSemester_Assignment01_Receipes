@@ -12,5 +12,6 @@ namespace Assignment01_Receipes.Models
         void SaveRecipe(Recipe recipe);
         Recipe DeleteRecipe(int recipeId);
         void addCookingStep(CookingStep cs);
+        Recipe getRecipeByID(int recipeId);
     }
 }

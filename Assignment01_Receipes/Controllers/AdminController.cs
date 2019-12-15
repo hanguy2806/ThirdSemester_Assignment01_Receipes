@@ -32,8 +32,9 @@ namespace Assignment01_Receipes.Controllers
         [HttpPost]
         public ViewResult AddCookingStep(CookingStep cs)
         {
-            repository.addCookingStep(cs);              
-            return View("Edit", repository.Recipes.FirstOrDefault(r=>r.Id==cs.recipeId));
+            repository.addCookingStep(cs);
+            Recipe recipe = repository.getRecipeByID(cs.recipeId);//repository.Recipes.FirstOrDefault(r => r.Id == cs.recipeId);
+            return View("Edit", recipe);
         }
 
         [HttpGet]       
@@ -57,9 +58,15 @@ namespace Assignment01_Receipes.Controllers
             }
         }
 
+
+
         [HttpGet]
-        public ViewResult Edit(int recipeId) => View(repository
-           .Recipes.FirstOrDefault(r => r.Id == recipeId));
+        public ViewResult Edit(int recipeId)
+        {
+            Recipe recipe = repository.getRecipeByID(recipeId);
+            return View(recipe);
+        }
+
         [HttpPost]
       
         public IActionResult Edit(Recipe r)
@@ -84,7 +91,6 @@ namespace Assignment01_Receipes.Controllers
             if(deletedRecipe != null)
             {
                 TempData["message"] = $"{deletedRecipe.Name} was deleted!";
-
             }
             return RedirectToAction("RecipePage");
         }

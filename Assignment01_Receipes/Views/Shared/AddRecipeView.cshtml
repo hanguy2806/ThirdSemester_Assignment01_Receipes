@@ -1,4 +1,4 @@
-﻿@model  Recipe
+﻿@model Recipe
 <div asp-validation-summary="All"></div>
 <input type="hidden" asp-for="Id" />
 <div class="row">
@@ -24,15 +24,20 @@
 </div>
 <div class="row">
     <div class="col-25">
-        <label asp-for="CookingSteps.FirstOrDefault(cs=>cs.recipeId==Model.Id).description">Cooking Step:</label>
+        <label>Cooking Step:</label>
     </div><div class="col-75">
-    <textarea asp-for="CookingSteps.FirstOrDefault(cs=>cs.recipeId==Model.Id).description">
-@foreach(var item in Model.CookingSteps)
-{
-    @item.recipeId
-}
-</textarea>
-</div>
+              <textarea>
+           @{ 
+               if(Model != null && Model.CookingSteps != null)
+               {
+                   foreach (CookingStep item in Model.CookingSteps)
+                   {
+                        @:@item.description
+                   }
+               }
+           }
+          </textarea>
+    </div>
     <div class="col-75">
     </div>
 </div>
